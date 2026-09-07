@@ -231,7 +231,7 @@ export default function App() {
           <div className="flex items-center space-x-3">
             <button
               onClick={() => setActiveModal('lookup')}
-              className="flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-lg transition-all"
+              className="flex items-center gap-2 bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 shadow-sm transition-all hover:shadow"
             >
               <Search className="w-3.5 h-3.5 text-slate-500" />
               <span>Track Case</span>
