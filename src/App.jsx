@@ -219,14 +219,12 @@ export default function App() {
         className="w-full h-auto object-contain dynamic-logo-filter" 
          />
       </div>
-        <div>
-         <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
-         Office of the Student Experience Officer (SEO)
-         </p>
-        </div>
+        
       </div>
   </div>
-
+          <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
+            Office of the Student Experience Officer (SEO)
+         </p>
           {/* Action Navigation */}
           <div className="flex items-center space-x-3">
             <button
