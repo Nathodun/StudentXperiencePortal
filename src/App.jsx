@@ -205,26 +205,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-amber-500 selection:text-white">
       
-      {}
-      <div className="bg-[#08182b] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          
-          <div className="flex items-center space-x-6 text-xs">
-            <button 
-              onClick={() => setActiveModal('emergency')} 
-              className="text-red-400 hover:text-red-300 font-medium flex items-center gap-1.5 transition-colors"
-            >
-              <AlertTriangle className="w-3.5 h-3.5" /> Urgent Support Desk
-            </button>
-            <a href="tel:+2348006284357" className="hover:text-amber-400 flex items-center gap-1.5 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-amber-500" /> +234 800 NBU HELP
-            </a>
-            <a href="mailto:seo@nbu.edu.ng" className="hover:text-amber-400 hidden md:flex items-center gap-1.5 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-amber-500" /> seo@nbu.edu.ng
-            </a>
-          </div>
-        </div>
-      </div>
+      
 
       {}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
