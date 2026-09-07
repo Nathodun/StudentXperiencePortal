@@ -208,35 +208,34 @@ export default function App() {
       
 
       {}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
-          {/* NBU Crest & Brand Title */}
-  <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
-      <div className="flex items-center justify-start max-w-[150px] sm:max-w-[180px] h-auto">
-        <img 
-        src="/logo.png" 
-        alt="Student Experience Office Logo" 
-        className="w-full h-auto object-contain dynamic-logo-filter" 
-         />
-      </div>
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
+                {/* NBU Crest & Brand Title */}
+                  <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
+                      <div className="flex items-center justify-start max-w-[150px] sm:max-w-[180px] h-auto">
+                       <img 
+                        src="/logo.png" 
+                        alt="Student Experience Office Logo" 
+                        className="w-full h-auto object-contain dynamic-logo-filter" 
+                       />
+                      </div>
         
-      </div>
-  </div>
-          <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
-            Office of the Student Experience Officer (SEO)
-         </p>
-          {/* Action Navigation */}
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={() => setActiveModal('lookup')}
-              className="flex items-center gap-2 bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 shadow-sm transition-all hover:shadow"
-            >
-              <Search className="w-3.5 h-3.5 text-slate-500" />
-              <span>Track Case</span>
-            </button>
-          </div>
-        </div>
-      </header>
+                  </div>
+                  <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
+                  Office of the Student Experience Officer (SEO)
+                  </p>
+                 {/* Action Navigation */}
+                  <div className="flex items-center space-x-3">
+                    <button
+                      onClick={() => setActiveModal('lookup')}
+                      className="flex items-center gap-2 bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 shadow-sm transition-all hover:shadow"
+                       >
+                      <Search className="w-3.5 h-3.5 text-slate-500" />
+                      <span>Track Case</span>
+                    </button>
+                  </div>
+              </div>
+        </header>
 
       {}
       <main className="flex-1">
