@@ -213,9 +213,14 @@ export default function App() {
           
           {/* NBU Crest & Brand Title */}
           <div className="flex items-center space-x-3">
-            <div className="w-11 h-11 bg-[#0c2340] rounded-lg flex items-center justify-center border-2 border-amber-500 shadow-md">
-              <Shield className="w-6 h-6 text-amber-400" />
-            </div>
+              <div className="w-11 h-11 bg-[#0c2340] rounded-lg flex items-center justify-center border-2 border-amber-500 shadow-md overflow-hidden">
+                  <img 
+                  src="/logo.png" 
+                  alt="Student Experience Office Logo" 
+                  className="w-7 h-7 object-contain" 
+                    />
+              </div>
+
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="font-bold text-[#0c2340] text-lg sm:text-xl tracking-tight leading-none">
@@ -264,7 +269,7 @@ export default function App() {
               </h2>
 
               <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-                The Student Experience Officer (SEO) platform is your official institutional gateway for welfare support, enquiry resolutions, feedback, and active campus engagement at Nigeria British University.
+                The Student Experience Officer (SEO) platform is to submit a complaint, report an incident, track case status at Nigeria British University.
               </p>
 
               {/* Urgent Notification Banner */}
