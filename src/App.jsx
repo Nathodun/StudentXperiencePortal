@@ -208,14 +208,7 @@ export default function App() {
       {}
       <div className="bg-[#08182b] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center space-x-3">
-            <span className="bg-amber-500/20 text-amber-400 font-semibold px-2 py-0.5 rounded text-[10px] tracking-wide uppercase border border-amber-500/30">
-              Official Portal
-            </span>
-            <span className="text-slate-300 hidden sm:inline">
-              Nigeria British University &bull; Division of Student Affairs
-            </span>
-          </div>
+          
           <div className="flex items-center space-x-6 text-xs">
             <button 
               onClick={() => setActiveModal('emergency')} 
