@@ -219,11 +219,12 @@ export default function App() {
                 alt="Student Experience Office Logo" 
                 className="w-full h-auto object-contain dynamic-logo-filter" 
                   />
-              </div>
-          <div>
+              </div> <br>
               <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
                 Office of the Student Experience Officer (SEO)
               </p>
+          <div>
+              
             </div>
           </div>
 
