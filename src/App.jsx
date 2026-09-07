@@ -243,7 +243,7 @@ export default function App() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-             <span><p className="text-2xl font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
+             <span><p className="text-1xl font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
                   Office of the Student Experience Officer (SEO) 
                   </p> </span> <br />
             <div className="max-w-3xl">
@@ -611,15 +611,29 @@ export default function App() {
         </button>
       </div>
 
-      {/* Embedded Google Apps Script iFrame */}
       <div className="flex-1 w-full h-full bg-gray-50 relative">
-        <iframe
-          src="https://script.google.com/macros/s/AKfycbwpFDRtiyYHNfHx0H6X9mJeJMgOoBgkN0oGU2FEEldusHBRoe7IDiS0qjkld4wNRK286g/exec"
-          title="Student Complaint Form"
-          className="w-full h-full border-0"
-          allow="geolocation; microphone; camera"
-        />
-      </div>
+            {/* Loading Spinner with an ID */}
+            <div 
+              id="iframe-loader" 
+              className="absolute inset-0 flex items-center justify-center bg-gray-50 z-10"
+            >
+              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+            </div>
+
+            {/* Embedded Google Apps Script iFrame */}
+            <iframe
+              src="https://script.google.com/macros/s/AKfycbwpFDRtiyYHNfHx0H6X9mJeJMgOoBgkN0oGU2FEEldusHBRoe7IDiS0qjkld4wNRK286g/exec"
+              title="Student Complaint Form"
+              className="w-full h-full border-0"
+              allow="geolocation; microphone; camera"
+              // Vanilla JS targets the spinner ID and hides it when loaded
+              onLoad={() => {
+                const loader = document.getElementById('iframe-loader');
+                if (loader) loader.style.display = 'none';
+              }}
+            />
+          </div>
+
 
     </div>
   </div>
@@ -784,40 +798,51 @@ export default function App() {
       {/* MODAL 4: Emergency Welfare Modal */}
       {activeModal === 'emergency' && (
         <div className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border-2 border-red-500">
+          <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl h-[80vh] flex flex-col overflow-hidden border-2 border-red-500">
             <div className="bg-red-600 text-white p-5 flex justify-between items-center">
               <div className="flex items-center space-x-2">
                 <AlertTriangle className="w-5 h-5" />
-                <h3 className="font-bold text-sm">Urgent Student Welfare Hotline</h3>
+                <h3 className="font-bold text-sm">Report an Incident</h3>
               </div>
               <button onClick={() => setActiveModal(null)} className="text-white/80 hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
             
-            <div className="p-6 text-xs space-y-4">
+            <div className="p-6 text-xs space-y-4 w-full max-w-3xl h-[80vh]">
               <p className="text-slate-700 leading-relaxed font-medium">
-                If you or another student are facing an immediate personal safety, health, or security crisis on campus, please reach out directly:
+                Kindly report only verified incident.  Non-incident or other concerns can be submitted through the standard Complaint & Enquiry drawer.
               </p>
 
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-slate-900">SEO Urgent Welfare Desk</span>
-                  <a href="tel:+2348006284357" className="bg-red-600 text-white font-bold px-3 py-1 rounded text-[11px]">Call Now</a>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-slate-900">NBU Campus Security Patrol</span>
-                  <a href="tel:+2348009990000" className="bg-slate-900 text-white font-bold px-3 py-1 rounded text-[11px]">24/7 Security</a>
-                </div>
-              </div>
+                <div className="flex-1 w-full h-full bg-gray-50 relative">
+                {/* Loading Spinner with an ID */}
+                  <div 
+                    id="iframe-loader" 
+                    className="absolute inset-0 flex items-center justify-center bg-gray-50 z-10"
+                  >
+                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+                  </div>
 
-              <p className="text-slate-500 text-[11px]">
-                Non-emergency concerns can be submitted through the standard Complaint & Enquiry drawer.
-              </p>
+                  {/* Embedded Google Apps Script iFrame */}
+                  <iframe
+                    src="https://google.com"
+                    title="Incident Form"
+                    className="w-full h-full border-0"
+                    allow="geolocation; microphone; camera"
+                    // Vanilla JS targets the spinner ID and hides it when loaded
+                    onLoad={() => {
+                      const loader = document.getElementById('iframe-loader');
+                      if (loader) loader.style.display = 'none';
+                    }}
+                  />
+                </div>
+
+
             </div>
           </div>
         </div>
       )}
+
 
       {/* MODAL 5: Campus Events View Modal */}
       {activeModal === 'events' && (
