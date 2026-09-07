@@ -52,11 +52,7 @@ const INITIAL_FAQ_ITEMS = [
     title: 'The SEO Mandate & Role',
     content: 'The Student Experience Officer (SEO) acts as the bridge between the student body and university leadership, overseeing welfare support, complaint resolution, student engagement activities, feedback channels, and campus life enrichment.'
   },
-  {
-    id: 'hours',
-    title: 'Office Hours & Emergency Access',
-    content: 'The SEO Desk in the Student Affairs Building is open Monday to Friday, 8:00 AM – 4:00 PM. For after-hours urgent welfare or security emergencies, our 24/7 hotline (+234 800 NBU HELP) is always available.'
-  }
+  
 ];
 
 const SAMPLE_EVENTS = [
@@ -334,7 +330,7 @@ export default function App() {
 
               {/* Card 2: Student Feedback & Voice */}
               <div 
-                onClick={() => setActiveModal('feedback')}
+                onClick={() => setActiveModal('feedbackk')}
                 className="group bg-slate-50 hover:bg-[#0c2340] border border-slate-200 hover:border-slate-800 rounded-xl p-6 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-xl"
               >
                 <div>
@@ -356,7 +352,7 @@ export default function App() {
 
               {/* Card 3: Welfare & Academic Support */}
               <div 
-                onClick={() => setActiveModal('welfare')}
+                onClick={() => setActiveModal('welfarek')}
                 className="group bg-slate-50 hover:bg-[#0c2340] border border-slate-200 hover:border-slate-800 rounded-xl p-6 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-xl"
               >
                 <div>
@@ -378,7 +374,7 @@ export default function App() {
 
               {/* Card 4: Events & Campus Engagement */}
               <div 
-                onClick={() => setActiveModal('events')}
+                onClick={() => setActiveModal('eventsk')}
                 className="group bg-slate-50 hover:bg-[#0c2340] border border-slate-200 hover:border-slate-800 rounded-xl p-6 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-xl"
               >
                 <div>
@@ -422,7 +418,7 @@ export default function App() {
 
               {/* Card 6: Internal SEO Officer Portal */}
               <div 
-                onClick={() => setActiveModal('login')}
+                onClick={() => setActiveModal('logink')}
                 className="group bg-amber-50/60 hover:bg-[#0c2340] border border-amber-200 hover:border-slate-800 rounded-xl p-6 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-xl"
               >
                 <div>
@@ -530,11 +526,10 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
             <div>
               <div className="flex items-center space-x-2 text-white font-bold text-sm mb-3">
-                <Shield className="w-4 h-4 text-amber-400" />
                 <span>NIGERIA BRITISH UNIVERSITY</span>
               </div>
               <p className="text-slate-400 text-xs leading-relaxed">
-                Excellence in Education & Student Life. Dedicated to fostering a world-class university environment.
+                Developing Potential We Trust. Providing world-class education driven by innovation, excellence, and global standards in the heart of Nigeria.
               </p>
             </div>
 
@@ -542,8 +537,8 @@ export default function App() {
               <h5 className="font-bold text-slate-200 mb-3 uppercase tracking-wider text-[11px]">Quick Actions</h5>
               <ul className="space-y-2 text-xs">
                 <li><button onClick={() => setActiveModal('complaint')} className="hover:text-amber-400 transition-colors">Submit Complaint</button></li>
-                <li><button onClick={() => setActiveModal('welfare')} className="hover:text-amber-400 transition-colors">Welfare Support</button></li>
-                <li><button onClick={() => setActiveModal('events')} className="hover:text-amber-400 transition-colors">Campus Events</button></li>
+                <li><button onClick={() => setActiveModal('welfarek')} className="hover:text-amber-400 transition-colors">Welfare Support</button></li>
+                <li><button onClick={() => setActiveModal('eventsk')} className="hover:text-amber-400 transition-colors">Campus Events</button></li>
                 <li><button onClick={() => setActiveModal('lookup')} className="hover:text-amber-400 transition-colors">Case Tracker</button></li>
               </ul>
             </div>
@@ -552,17 +547,18 @@ export default function App() {
               <h5 className="font-bold text-slate-200 mb-3 uppercase tracking-wider text-[11px]">Office Location</h5>
               <p className="text-slate-400 leading-relaxed">
                 Student Experience Office (SEO Desk)<br />
-                Ground Floor, Student Affairs Building<br />
-                NBU Main Campus
+                NBU Main Campus <br />
+                Km 10 Port Harcourt/Aba Expressway, <br />
+                Asa, Abia State, Nigeria
               </p>
             </div>
 
             <div>
               <h5 className="font-bold text-slate-200 mb-3 uppercase tracking-wider text-[11px]">Contact & Support</h5>
               <p className="text-slate-400 space-y-1">
-                <span>Hotline: +234 800 NBU HELP</span><br />
-                <span>Email: seo@nbu.edu.ng</span><br />
-                <span>Mon - Fri: 8:00 AM - 4:00 PM</span>
+                <span>Hotline: </span><br />
+                <span>Email:</span><br />
+                <span>Available 24/7</span>
               </p>
             </div>
           </div>
@@ -570,7 +566,7 @@ export default function App() {
           {/* Mandatory Disclaimers & Copyright */}
           <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px]">
             <div>
-              <p>&copy; 2026 Nigeria British University. All rights reserved.</p>
+              <p>&copy; 2026 SAOS Technologies. All rights reserved.</p>
               <p className="text-amber-400 font-semibold mt-1">
                 Proposed Solution / Concept Proposal &bull; Developed by SAOS for the NBU Student Experience Office.
               </p>
@@ -581,7 +577,7 @@ export default function App() {
                 <Cookie className="w-3.5 h-3.5" /> Cookie Settings
               </button>
               <span className="text-slate-600">|</span>
-              <button onClick={() => setActiveModal('login')} className="hover:text-amber-400 transition-colors flex items-center gap-1">
+              <button onClick={() => setActiveModal('logink')} className="hover:text-amber-400 transition-colors flex items-center gap-1">
                 <Lock className="w-3.5 h-3.5" /> Staff Login
               </button>
             </div>
@@ -752,7 +748,7 @@ export default function App() {
                   type="email"
                   required
                   placeholder="officer@nbu.edu.ng"
-                  value={loginCreds.email}
+                  value={loginCreds.emailk}
                   onChange={(e) => setLoginCreds({ ...loginCreds, email: e.target.value })}
                   className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
                 />
@@ -764,7 +760,7 @@ export default function App() {
                   type="password"
                   required
                   placeholder="••••••••••••"
-                  value={loginCreds.password}
+                  value={loginCreds.passwordk}
                   onChange={(e) => setLoginCreds({ ...loginCreds, password: e.target.value })}
                   className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
                 />
@@ -811,7 +807,7 @@ export default function App() {
             
             <div className="p-6 text-xs space-y-4 w-full max-w-3xl h-[80vh]">
               <p className="text-slate-700 leading-relaxed font-medium">
-                Kindly report only verified incident.  Non-incident or other concerns can be submitted through the standard Complaint & Enquiry drawer.
+                Kindly report only verified incident.  Non-incident or other concerns can be submitted through the student complaint form
               </p>
 
                 <div className="flex-1 w-full h-full bg-gray-50 relative">
