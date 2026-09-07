@@ -276,7 +276,7 @@ export default function App() {
                 </button>
 
                 <button
-              onClick={() => setActiveModal('login')}
+              onClick={() => setActiveModal('complaint')}
               className="flex items-center gap-2 bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 shadow-sm transition-all hover:shadow"
             >
               <Lock className="w-3.5 h-3.5 text-amber-400" />
@@ -591,179 +591,38 @@ export default function App() {
 
       {}
       
-      {/* MODAL 1: Submit Complaint / Concern Drawer */}
+      {/* MODAL 1: Submit Complaint / routing from google apps script*/}
       {activeModal === 'complaint' && (
-        <div className="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex justify-end">
-          <div className="bg-white w-full max-w-xl h-full shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right duration-300">
-            
-            <div className="bg-[#0c2340] text-white p-6 flex justify-between items-center border-b border-slate-800">
-              <div>
-                <h3 className="text-base font-bold flex items-center gap-2">
-                  <MessageSquare className="w-5 h-5 text-amber-400" />
-                  Submit Student Experience Enquiry / Complaint
-                </h3>
-                <p className="text-xs text-slate-400 mt-0.5">Logged directly to the SEO Case Management Desk</p>
-              </div>
-              <button onClick={() => { setActiveModal(null); setSubmissionSuccess(null); }} className="text-slate-400 hover:text-white">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl h-[80vh] flex flex-col overflow-hidden relative border border-gray-200">
+      
+      {/* Modal Header */}
+      <div className="flex items-center justify-between px-6 py-4 bg-[#0c2340] text-white border-b border-slate-700">
+        <h3 className="font-semibold text-sm sm:text-base flex items-center gap-2">
+          <Lock className="w-4 h-4 text-amber-400" />
+          Submit a Student Complaint
+        </h3>
+        <button
+          onClick={() => setActiveModal(null)}
+          className="text-gray-400 hover:text-white text-sm font-bold p-1 rounded-lg hover:bg-slate-800 transition-colors"
+        >
+          ✕
+        </button>
+      </div>
 
-            <div className="p-6 flex-1 overflow-y-auto">
-              {submissionSuccess ? (
-                <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
-                  <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <h4 className="text-lg font-bold text-emerald-900">Case Successfully Registered</h4>
-                  <p className="text-xs text-emerald-700 mt-1">Please record your unique case reference code below:</p>
-                  
-                  <div className="my-4 bg-white border border-emerald-300 rounded-lg p-3 inline-block font-mono text-base font-bold text-slate-900 shadow-sm">
-                    {submissionSuccess.ref}
-                  </div>
+      {/* Embedded Google Apps Script iFrame */}
+      <div className="flex-1 w-full h-full bg-gray-50 relative">
+        <iframe
+          src="https://script.google.com/macros/s/AKfycbwpFDRtiyYHNfHx0H6X9mJeJMgOoBgkN0oGU2FEEldusHBRoe7IDiS0qjkld4wNRK286g/exec"
+          title="Student Complaint Form"
+          className="w-full h-full border-0"
+          allow="geolocation; microphone; camera"
+        />
+      </div>
 
-                  <p className="text-xs text-slate-600 mb-6">
-                    A notification has been sent to the Student Experience Officer. You can track this case anytime using the "Track Case Status" option.
-                  </p>
-
-                  <button
-                    onClick={() => { setActiveModal(null); setSubmissionSuccess(null); }}
-                    className="bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-6 py-2.5 rounded-lg transition-all"
-                  >
-                    Close Window
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleComplaintSubmit} className="space-y-4">
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Student ID *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. NBU/26/00187"
-                        value={complaintForm.studentId}
-                        onChange={(e) => setComplaintForm({ ...complaintForm, studentId: e.target.value })}
-                        className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Daniel Adeyemi"
-                        value={complaintForm.fullName}
-                        onChange={(e) => setComplaintForm({ ...complaintForm, fullName: e.target.value })}
-                        className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
-                      <input
-                        type="email"
-                        placeholder="student@nbu.edu.ng"
-                        value={complaintForm.email}
-                        onChange={(e) => setComplaintForm({ ...complaintForm, email: e.target.value })}
-                        className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Faculty / School</label>
-                      <select
-                        value={complaintForm.faculty}
-                        onChange={(e) => setComplaintForm({ ...complaintForm, faculty: e.target.value })}
-                        className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none bg-white"
-                      >
-                        <option>Computing & IT</option>
-                        <option>Engineering & Technology</option>
-                        <option>Business & Management</option>
-                        <option>Law & Humanities</option>
-                        <option>Basic Medical Sciences</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Category</label>
-                      <select
-                        value={complaintForm.category}
-                        onChange={(e) => setComplaintForm({ ...complaintForm, category: e.target.value })}
-                        className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none bg-white"
-                      >
-                        <option value="Academic-Support">Academic Support Referral</option>
-                        <option value="Attendance-Concern">Attendance Concern</option>
-                        <option value="Welfare">Welfare & Accommodation</option>
-                        <option value="Complaint">General Complaint</option>
-                        <option value="Disciplinary">Disciplinary Referral</option>
-                        <option value="Other">Other Matter</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Priority Level</label>
-                      <select
-                        value={complaintForm.priority}
-                        onChange={(e) => setComplaintForm({ ...complaintForm, priority: e.target.value })}
-                        className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none bg-white"
-                      >
-                        <option value="Low">Low - General Enquiry</option>
-                        <option value="Medium">Medium - Attention Required</option>
-                        <option value="High">High - Urgent Matter</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Detailed Description *</label>
-                    <textarea
-                      rows={4}
-                      required
-                      placeholder="Describe the issue, context, date occurred, and relevant details..."
-                      value={complaintForm.description}
-                      onChange={(e) => setComplaintForm({ ...complaintForm, description: e.target.value })}
-                      className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Action Requested / Outcome Desired</label>
-                    <input
-                      type="text"
-                      placeholder="What outcome would you like to see?"
-                      value={complaintForm.actionRequested}
-                      onChange={(e) => setComplaintForm({ ...complaintForm, actionRequested: e.target.value })}
-                      className="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"
-                    />
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-200 flex justify-end gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setActiveModal(null)}
-                      className="px-4 py-2 border border-slate-300 text-slate-700 text-xs font-semibold rounded-lg hover:bg-slate-100"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="px-6 py-2 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-lg shadow transition-all flex items-center gap-1.5"
-                    >
-                      <Send className="w-3.5 h-3.5" /> Submit Case
-                    </button>
-                  </div>
-
-                </form>
-              )}
-            </div>
-
-          </div>
-        </div>
-      )}
+    </div>
+  </div>
+)}
 
       {/* MODAL 2: Case Status Tracker Modal */}
       {activeModal === 'lookup' && (
