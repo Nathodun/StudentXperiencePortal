@@ -278,18 +278,15 @@ export default function App() {
               {/* Urgent Notification Banner */}
               <div className="mt-8 bg-slate-800/80 border border-slate-700 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-amber-500/20 text-amber-400 rounded-lg">
-                    <Bell className="w-5 h-5" />
-                  </div>
                   
-                </div>
                 <button
                   onClick={() => setActiveModal('emergency')}
-                  className="w-full sm:w-auto bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all text-center whitespace-nowrap shadow-md"
+                  className="flex items-center space-x-3 w-full sm:w-auto bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all text-center whitespace-nowrap shadow-md"
                 >
                   <Bell className="w-5 h-5" />
                   <span>Report an Incident</span>
                 </button>
+                   </div>
               </div>
 
             </div>
