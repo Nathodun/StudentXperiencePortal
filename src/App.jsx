@@ -213,20 +213,14 @@ export default function App() {
           
           {/* NBU Crest & Brand Title */}
           <div className="flex items-center space-x-3">
-              <div className="w-11 h-11 bg-[#0c2340] rounded-lg flex items-center justify-center border-2 border-amber-500 shadow-md overflow-hidden">
-                  <img 
-                  src="/logo.png" 
-                  alt="Student Experience Office Logo" 
-                  className="w-7 h-7 object-contain" 
-                    />
+              <div className="flex items-center justify-start max-w-[150px] sm:max-w-[180px] h-auto">
+                <img 
+                src="/logo.png" 
+                alt="Student Experience Office Logo" 
+                className="w-full h-auto object-contain dynamic-logo-filter" 
+                  />
               </div>
-
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="font-bold text-[#0c2340] text-lg sm:text-xl tracking-tight leading-none">
-                  NIGERIA BRITISH UNIVERSITY
-                </h1>
-              </div>
+          <div>
               <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
                 Office of the Student Experience Officer (SEO)
               </p>
