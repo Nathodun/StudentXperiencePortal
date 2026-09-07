@@ -220,10 +220,8 @@ export default function App() {
                        />
                       </div>
         
-                  </div>
-                  <p className="text-xs font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
-                  Office of the Student Experience Officer (SEO)
-                  </p>
+                  </div> 
+                  
                  {/* Action Navigation */}
                   <div className="flex items-center space-x-3">
                     <button
@@ -245,8 +243,11 @@ export default function App() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+             <span><p className="text-2xl font-semibold text-amber-600 mt-0.5 tracking-wider uppercase">
+                  Office of the Student Experience Officer (SEO) 
+                  </p> </span> <br />
             <div className="max-w-3xl">
-              
+             
               <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-3 py-1 text-xs font-semibold text-amber-400 mb-6 backdrop-blur-sm">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Dedicated Student Experience Desk</span>
@@ -590,9 +591,7 @@ export default function App() {
       </footer>
 
       {}
-     
-    {/* 1. Add state for iframe loading */}
-    const [isIframeLoading, setIsIframeLoading] = useState(true); 
+      
       {/* MODAL 1: Submit Complaint / routing from google apps script*/}
       {activeModal === 'complaint' && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
@@ -605,33 +604,19 @@ export default function App() {
           Submit a Student Complaint
         </h3>
         <button
-          onClick={() => {
-            setActiveModal(null);
-            setIsIframeLoading(true); // Reset state when closed
-          }}
+          onClick={() => setActiveModal(null)}
           className="text-gray-400 hover:text-white text-sm font-bold p-1 rounded-lg hover:bg-slate-800 transition-colors"
         >
           ✕
         </button>
       </div>
 
-      {/* Embedded Area */}
+      {/* Embedded Google Apps Script iFrame */}
       <div className="flex-1 w-full h-full bg-gray-50 relative">
-        
-        {/* Loading Spinner Overlay */}
-        {isIframeLoading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
-            <div className="w-10 h-10 border-4 border-slate-200 border-t-[#0c2340] rounded-full animate-spin"></div>
-            <p className="mt-3 text-xs font-semibold text-gray-600">Loading secure form...</p>
-          </div>
-        )}
-
-        {/* Google Apps Script iFrame */}
         <iframe
           src="https://script.google.com/macros/s/AKfycbwpFDRtiyYHNfHx0H6X9mJeJMgOoBgkN0oGU2FEEldusHBRoe7IDiS0qjkld4wNRK286g/exec"
           title="Student Complaint Form"
           className="w-full h-full border-0"
-          onLoad={() => setIsIframeLoading(false)} // 👈 Hides spinner once iframe loads
           allow="geolocation; microphone; camera"
         />
       </div>
@@ -796,86 +781,44 @@ export default function App() {
         </div>
       )}
 
-    
-import React, { useState } from 'react';
-import { AlertTriangle, X } from 'lucide-react';
-
-export default function YourComponent() {
-  // 1. Add state for iframe loading and modal tracking
-  const [isIframeLoading, setIsIframeLoading] = useState(true);
-  const [activeModal, setActiveModal] = useState('emergency'); // Set to 'emergency' for demonstration
-
-  return (
-    <>
       {/* MODAL 4: Emergency Welfare Modal */}
       {activeModal === 'emergency' && (
         <div className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-md h-[90vh] rounded-2xl shadow-2xl overflow-hidden border-2 border-red-500 flex flex-col">
-            
-            {/* Header */}
-            <div className="bg-red-600 text-white p-5 flex justify-between items-center flex-shrink-0">
+          <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border-2 border-red-500">
+            <div className="bg-red-600 text-white p-5 flex justify-between items-center">
               <div className="flex items-center space-x-2">
                 <AlertTriangle className="w-5 h-5" />
-                <h3 className="font-bold text-sm">
-                  Report only Verified & Urgent Incident
-                </h3>
-              </div> {/* 👈 FIXED: Added missing closing div here */}
-
-              <button
-                onClick={() => { 
-                  setActiveModal(null);
-                  setIsIframeLoading(true); // Reset state when closed
-                }}
-                className="text-white/80 hover:text-white"
-              >
+                <h3 className="font-bold text-sm">Urgent Student Welfare Hotline</h3>
+              </div>
+              <button onClick={() => setActiveModal(null)} className="text-white/80 hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
-
-            {/* Description & Notice Area */}
-            <div className="p-6 text-xs space-y-4 flex-shrink-0">
+            
+            <div className="p-6 text-xs space-y-4">
               <p className="text-slate-700 leading-relaxed font-medium">
                 If you or another student are facing an immediate personal safety, health, or security crisis on campus, please reach out directly:
               </p>
 
-              <p className="text-slate-500 text-[11px]">
-                Non-incident/emergency concerns can be submitted through the standard Complaint form.
-              </p>
-
               <div className="bg-red-50 border border-red-200 rounded-xl p-4 space-y-3">
-                {/* Emergency contacts or info goes here */}
-              </div>
-            </div>
-
-            {/* Embedded Area */}
-            <div className="flex-1 min-h-0 w-full bg-gray-50 relative">
-              
-              {/* Loading Spinner Overlay */}
-              {isIframeLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
-                  <div className="w-10 h-10 border-4 border-slate-200 border-t-[#0c2340] rounded-full animate-spin"></div>
-                  <p className="mt-3 text-xs font-semibold text-gray-600">
-                    Loading secure form...
-                  </p>
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900">SEO Urgent Welfare Desk</span>
+                  <a href="tel:+2348006284357" className="bg-red-600 text-white font-bold px-3 py-1 rounded text-[11px]">Call Now</a>
                 </div>
-              )}
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900">NBU Campus Security Patrol</span>
+                  <a href="tel:+2348009990000" className="bg-slate-900 text-white font-bold px-3 py-1 rounded text-[11px]">24/7 Security</a>
+                </div>
+              </div>
 
-              {/* Google Apps Script iFrame */}
-              <iframe
-                src="https://script.google.com/macros/s/AKfycbwpFDRtiyYHNfHx0H6X9mJeJMgOoBgkN0oGU2FEEldusHBRoe7IDiS0qjkld4wNRK286g/exec"
-                title="Student Complaint Form"
-                className="absolute inset-0 w-full h-full border-0"
-                onLoad={() => setIsIframeLoading(false)}
-                allow="geolocation; microphone; camera"
-              />
-
+              <p className="text-slate-500 text-[11px]">
+                Non-emergency concerns can be submitted through the standard Complaint & Enquiry drawer.
+              </p>
             </div>
           </div>
         </div>
       )}
-    </>
-  );
-}
+
       {/* MODAL 5: Campus Events View Modal */}
       {activeModal === 'events' && (
         <div className="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
