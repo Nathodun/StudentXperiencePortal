@@ -261,7 +261,7 @@ export default function App() {
               
               <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-3 py-1 text-xs font-semibold text-amber-400 mb-6 backdrop-blur-sm">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Dedicated Student Support & Welfare Desk</span>
+                <span>Dedicated Student Experience Desk</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
@@ -277,20 +277,13 @@ export default function App() {
 
               {/* Urgent Notification Banner */}
               <div className="mt-8 bg-slate-800/80 border border-slate-700 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-amber-500/20 text-amber-400 rounded-lg">
-                    <Bell className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Immediate Assistance Required?</h4>
-                    <p className="text-xs text-slate-400">Reach the SEO Emergency Desk for urgent accommodation or welfare matters.</p>
-                  </div>
-                </div>
+                
                 <button
                   onClick={() => setActiveModal('emergency')}
                   className="w-full sm:w-auto bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all text-center whitespace-nowrap shadow-md"
                 >
-                  Urgent Support Desk
+                  <Bell className="w-5 h-5" />
+                  <span>Report an Incident</span>
                 </button>
               </div>
 
