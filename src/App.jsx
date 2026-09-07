@@ -237,14 +237,6 @@ export default function App() {
               <Search className="w-3.5 h-3.5 text-slate-500" />
               <span>Track Case Status</span>
             </button>
-            
-            <button
-              onClick={() => setActiveModal('login')}
-              className="flex items-center gap-2 bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 shadow-sm transition-all hover:shadow"
-            >
-              <Lock className="w-3.5 h-3.5 text-amber-400" />
-              <span>SEO Staff Portal</span>
-            </button>
           </div>
         </div>
       </header>
@@ -286,6 +278,14 @@ export default function App() {
                   <Bell className="w-5 h-5" />
                   <span>Report an Incident</span>
                 </button>
+
+                <button
+              onClick={() => setActiveModal('login')}
+              className="flex items-center gap-2 bg-[#0c2340] hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-slate-700 shadow-sm transition-all hover:shadow"
+            >
+              <Lock className="w-3.5 h-3.5 text-amber-400" />
+              <span>Submit a Complaint</span>
+            </button>
                    </div>
               </div>
 
